@@ -1,5 +1,9 @@
 # GitHub_exercise
-使用GitHub进行团队协作的练习工程！！
+这个项目学习自'极客时间'苏玲老师的课程《玩转Git三剑客》.
+
+在此感谢苏玲老师的教导.让我对git的学习打好了基础.扩展了见识.
+
+以下是自己对这门课程的一个总结,希望对大家也有所帮助.
 
 ### 目录
 <a href='#1' style='text-decoration: none;color:brown;'>一.Git基本命令</a> </br>
@@ -17,7 +21,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='#76' style='text-decoration: none;color:gray'>七.六 其它</a> </br>
 <a href='#8' style='text-decoration: none;color:orange'>八.Github实践</a> </br>
 
-### 检索关键词
+### 检索关键词(点击可直接跳转)
 <a href='#tree' style='text-decoration: none;color:blue'>tree、commit、blog</a> &nbsp;&nbsp;&nbsp;
 <a href='#.git' style='text-decoration: none;color:blue'>.git</a> &nbsp;&nbsp;&nbsp;
 <a href='#.gitignore' style='text-decoration: none;color:blue'>.gitignore</a> &nbsp;&nbsp;&nbsp;
