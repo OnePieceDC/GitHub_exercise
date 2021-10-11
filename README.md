@@ -19,7 +19,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='#74' style='text-decoration: none;color:gray'>七.四 项目内部实施code review</a> </br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='#75' style='text-decoration: none;color:gray'>七.五 团队协作如何做多分支的集成！！</a> </br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='#76' style='text-decoration: none;color:gray'>七.六 其它</a> </br>
-<a href='#8' style='text-decoration: none;color:orange'>八.Github实践</a> </br>
+<a href='#8' style='text-decoration: none;color:orange'>八.GitLab实践</a> </br>
 
 ### 检索关键词(点击可直接跳转)
 <a href='#tree' style='text-decoration: none;color:blue'>tree、commit、blog</a> &nbsp;&nbsp;&nbsp;
