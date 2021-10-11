@@ -144,7 +144,7 @@
         - 不难看出,出现了两颗独立的树,因为两分支不再拥有相同ID的commit！
     - ==注意==: 某一commit发生了变化,其自身和子孙commit的ID都会发生变化。
     - 补充: 意外退出了vi界面 别慌 `git rebase --edit-todo`继续完成编辑后 `git rebase --continue`
-        ![image.png](Screenshots/0.jpg)
+        ![image.png](https://note.youdao.com/yws/res/59804/WEBRESOURCE6315bfc6009a68f541add0c01dc0016d)
 - [ ] <span id="diff">**diff**</span>
     - 明确: HEAD通常指向当前分支最新的commit.分离头指针(detached HEAD)的情况除外.
     - 注意：
@@ -235,7 +235,7 @@ git reset --soft 47183d8 | 没影响|==新增==原始HEAD节点与reset目标节
     - 当index暂存区为空时: 
         - `git checkout HEAD filename` == `git checkout filename`     
         - `git diff` == `git diff HEAD`
-        - ![image.png](Screenshots/1.jpg)
+        - ![image.png](https://note.youdao.com/yws/res/59817/WEBRESOURCE140688051ea1dea36639bb26f7941f67)
 ---
 
 ## <span id="3">三.Git与GitHub的简单同步</span>
@@ -261,14 +261,14 @@ git reset --soft 47183d8 | 没影响|==新增==原始HEAD节点与reset目标节
     - 本地与GitHub进行简单同步 <a href='#sync' style='text-decoration: none;color:pink'>链接</a>
         - <span style="color:red">注意</span>:**这里添加的远程仓库地址名称为 github. (默认是origin)** 
     - 在GitHub项目中基于main主干新建分支 `fearure/add_git_commands`
-        - ![image.png](Screenshots/2.jpg) 
+        - ![image.png](https://note.youdao.com/yws/res/59812/WEBRESOURCEe82c2c82a1b36a89f5064ac73dfdef2b) 
     - 基于远端(**github**)的分支创建本地分支
         - <span style="color:red">从远程跟踪分支检出本地分支会自动创建所谓的“跟踪分支”,跟踪分支是与远程分支有直接关系的本地分支！</span>
         - 将服务器上的远端分支拉取到本地 <span id="fetch">**`fetch`**</span>
             - `git fetch github`
             - 解释: fetch会将本地的远端分支跟服务器上的远端分支保持一致！(建立或更新远程跟踪分支)
         - `git checkout -b feature/add_git_commands github/feature/add_git_commands` 
-        - ![image.png](Screenshots/3.jpg)
+        - ![image.png](https://note.youdao.com/yws/res/59810/WEBRESOURCE9b38cb9cf9e927e385da1e8c993d36e3)
 - 码农A(OnePieceDC)
     - 将该项目的主干main通过SSH协议从GIT服务器克隆到本地 <span id="clone">**`clone`**</span>
         - `git clone git@github.com:OnePieceDC/git_learning.git git_learning_02` ==注==: clone时指定文件夹名字 git_learning_02
@@ -278,7 +278,7 @@ git reset --soft 47183d8 | 没影响|==新增==原始HEAD节点与reset目标节
         - 因为我们在本地无法直接在clone下来的远程分支上做变更(建议名字一样!)
         - `git checkout -b feature/add_git_commands origin/feature/add_git_commands`
         - <span style="color:red">顺带提一句:很关键</span> 此时本地和远端的这两个分支建立了fast-forword关系！！这时候,它们的HASH值是一样的！
-        - ![image.png](Screenshots/4.jpg)
+        - ![image.png](https://note.youdao.com/yws/res/59808/WEBRESOURCE4720122c29ea47b1df902f14ae705525)
 - <span id="fast-forword">**fast-forword**</span>
     - 举个栗子:本地分支往远端分支做push操作,如果远端分支不是这个本地分支的祖先,那它两就不是fast- forward关系。反之异然。
     - 我们把fast-forward通俗地说：commit和commit之间，子commit有一个箭头指向父commit，用这种方式，版本演变的历史就会形成一幅带方向的图。把commit比做人的话，孙子和爷爷之间，儿子和爸爸之间就是fastforward的关系，而堂兄之间就不是fastforward的关系了。
@@ -297,7 +297,7 @@ git reset --soft 47183d8 | 没影响|==新增==原始HEAD节点与reset目标节
     -  `vi index.html`;`git add -u`;`git commit -m'Add git commands in index'`
     -  执行到这一步,你会发现远端feature分支Hash为25g40,而B码农的本地分支feature远端跟踪分支的Hash停留在190a3
     -  所以执行`git push github`;会报错 ->本地跟远端的分支不是fast-forwards关系！
-        - ![image.png](Screenshots/5.jpg)
+        - ![image.png](https://note.youdao.com/yws/res/59806/WEBRESOURCE4628cf1d7bd23b16df14fd9caedf245d)
     - 解决方案:
         - `git fetch github`
         - `git merge 25g40`==合并指定分支到当前分支== <span id="merge">**merge**</span>
@@ -310,8 +310,8 @@ git reset --soft 47183d8 | 没影响|==新增==原始HEAD节点与reset目标节
                 - 有冲突,也可以使`git merge --abort`放弃解决冲突，取消merge
         - `git push`
         - ==纠正一下: 橘色的commit的hash值是要变的！！制图的时候疏忽了。==
-        - ![image.png](Screenshots/6.jpg)
-        - ![image.png](Screenshots/7.jpg)
+        - ![image.png](https://note.youdao.com/yws/res/59814/WEBRESOURCE59d579b7dfa1a1a60f81e5aadb14e458)
+        - ![image.png](https://note.youdao.com/yws/res/59815/WEBRESOURCE7696d3e2231e34e54ed4f68c99355165)
 
 ##### 情况二: AB修改了相同的文件不同区域
 - 首先执行`git pull`指令,本地与远端进行同步(把远程仓库新的提交拉取到本地) <span id="pull">**pull**</span>
@@ -430,7 +430,7 @@ git reset --soft 47183d8 | 没影响|==新增==原始HEAD节点与reset目标节
     git merge f4214d3  --allow-unrelated-histories
     git push first01 master:main
     ```
-    ![image](Screenshots/8.jpg)
+    ![image](https://note.youdao.com/yws/res/60031/E777AB7920DB413EB4465C208FE6310E)
 - 远端创建Beijing分支,将本地Beijing分支的内容push到远端的Beijing分支
     ```
     git fetch first01
@@ -448,13 +448,13 @@ git reset --soft 47183d8 | 没影响|==新增==原始HEAD节点与reset目标节
     vi readme 
     git commit -am 'Beijing is watermelons'
     ```
-    ![image](Screenshots/9.jpg)
+    ![image](https://note.youdao.com/yws/res/60036/4D842A1A218A4C4EAF7B83C51989AA93)
     ```
     # 等同于git push first01 Beijing:Beijing
     git push first01
     ```
-    ![image](Screenshots/10.jpg)
-    ![image](Screenshots/11.jpg)
+    ![image](https://note.youdao.com/yws/res/60051/B21C8B6087EC446F89AA48063A976C8C)
+    ![image](https://note.youdao.com/src/95C7CEF398474A6ABCC6B1C65FD8A5FA)
 - 创建b标签并推送到远端
     ```
     git branch -av
@@ -467,30 +467,30 @@ git reset --soft 47183d8 | 没影响|==新增==原始HEAD节点与reset目标节
 ##### <span style="color:red" id='72'>在Github中,将Beijing这个分支合入到main主干中.</span>
 - (对远程进行的操作,暂且对Git客户端没有影响的啦)
 - Pull requests -> New pull request -> `base:main <- compare:Beijing` -> Create pull request
-![image](Screenshots/12.jpg)
+![image](https://note.youdao.com/yws/res/60075/56C0A8C5AFCC47729B696FD05A267773)
 - 添加说明,为什么要做本次变更！
 - Github会做检查,看是否可以做合并,若可以,会提供3种合并的策略. 
     -  Create a merge commit （当前选择第一种）
         - `Confirm merge` 背景色变为紫色表明merge成功！(不急着删除这个分支.)
-        ![image](Screenshots/13.jpg)  
+        ![image](https://note.youdao.com/yws/res/60090/4C13ED8E8276493E858CEAD2575CB9D1)  
         - 在main主干上创建了一个merge的commit
         - merge不管分支中间做了几个变更,当与其它分支做合并的时候,它会将前面所有commit的变更做一个统一的change set。因此在处理分支与分支的集成的时候,处理冲突它只需要处理一次就行！(所以有人会认为merge比rebase好用Hhhh)
-        - ![image](Screenshots/14.jpg)
-        - ![image](Screenshots/15.jpg)
+        - ![image](https://note.youdao.com/yws/res/60093/B718003C3FFC44D5AA9E31FF889E0947)
+        - ![image](https://note.youdao.com/yws/res/60097/304D8CC2CB834094A792CCB3E6F90CF0)
     -  Squash and merge
         - 先强制回退 `git push -f first01 master:main`  
         - `Confirm squash and merge` 背景色变为紫色
         - Beijing这一特性分支没有动,Github先找到main和Beijing共同的祖先,从这个点开始将Beijing分支的3个commit形成的Change Set==变更集==的==总和==放到了main最新的commit里面进而创建了一个新的commit(b573059)
             - 这种Squash的方式也能形成Linear线性的分支模式(对于主干而言).一没merge的节点,二将commit进行了一个整理.
             - 但是并不适用于任何的应用场景. 假设Beijing分支的三个commit是相互独立的(不是为了做一件事情的, 每个commit的功能点都比较完备),就没必要进行Squash.分成多个反而更容易进行跟踪
-        - ![image](Screenshots/16.jpg)
-        - ![image](Screenshots/17.jpg)
+        - ![image](https://note.youdao.com/yws/res/60112/A452AF7D8A50424588B912138807A78B)
+        - ![image](https://note.youdao.com/yws/res/60114/4BF43AB0735C4D5DB4829FB46FFC6974)
     -  Rebase and merge
         - 同理,先强制回退 `git push -f first01 master:main`
         - `Confirm rebase and merge` 背景色变为紫色
         - 将Beijing特性分支上的变更集一个一个的放到main主干后面.即从Beijing分支上把新增的commit的内容一个一个的复制到main分支上,创建一个个新的commit,但文件变更的内容与Beijing分支的commit是一样的.
-        - ![image](Screenshots/18.jpg)
-        - ![image](Screenshots/19.jpg)
+        - ![image](https://note.youdao.com/yws/res/60210/1606BA75D5594270B804BEBA4F4ADD68)
+        - ![image](https://note.youdao.com/yws/res/60212/87EA7C02227E4BE3B46101B44F4D0664)
         - 从上图中对比,可以发现:**Squash更改了commit原作者(有点窃取劳动果实的意味),Rebase保留了commit原作者的信息。**
 
 ##### <span style="color:red" id='73'>Issues</span>
@@ -543,21 +543,21 @@ git reset --soft 47183d8 | 没影响|==新增==原始HEAD节点与reset目标节
     git push fist01 s
     git push first01 s
     ```
-    ![image](Screenshots/20.jpg)
-    ![image](Screenshots/21.jpg)
+    ![image](https://note.youdao.com/yws/res/60237/5ADB233E3C3C4A0A9B8D7C4E03AE7F42)
+    ![image](https://note.youdao.com/yws/res/60243/4F0EA5637F5844669BD081D84237B537)
 - 工作中,特性分支代表了不同功能的开发,总是有先有后的合入到集成分支里面,这里我们基于Github平台做集成(pull request)
 - [ ] <span style="color:orange">merge commit </span>
     - 将Beijing分支通过merge的方式合入到main主干分支,main生成了一个merge的新commit！
-        - ![image](Screenshots/22.jpg) 
+        - ![image](https://note.youdao.com/yws/res/60285/600ACBE6C2F14AB795D6DF50B3F09C8F) 
     - 试图再将Shanghai分支合并到main主干中. 警告:'此分支存在必须解决的冲突.'(两分支都对文件的某一个区域做了改动) -> 在线解决冲突！-> Commit merge
-        - ![image](Screenshots/23.jpg)
-        - ![image](Screenshots/24.jpg)
+        - ![image](https://note.youdao.com/yws/res/60275/95A37AE4054C497FA97A9857DBB47AFE)
+        - ![image](https://note.youdao.com/yws/res/60280/5ED43D251D024065A7AB0702BDDCDBC0)
         - 原本Shanghai分支是生成四个commit的,现在github将main分支合入到了Shanghai,在Shanghai这个分支里将冲突解决掉！因而现目前main和Shanghai分支是fast-forword的关系！(main是Shanghai的祖父)
-            - ![image](Screenshots/25.jpg)
+            - ![image](https://note.youdao.com/yws/res/60288/923951BF1D7E44B594CD0E28037E655E)
     - 解决完冲突后,继续pull request. `Confirm merge`
         - 这里选择的策略是创建一个merge的commit.
         - 即便此时main和Shanghai是fast-forword的关系.Github处理的时候,也没有将main分支直接指向Shanghai这个commit。
-        - ![image](Screenshots/26.jpg) 
+        - ![image](https://note.youdao.com/yws/res/60307/001BA5CBA3314DD1AAB9F06B5828D5CE) 
     - 综上: 两个特性分支先后合并到main主干后,main主干上会新增两个merge commit(都具备两个parent commit).
 - [ ] <span style="color:orange">Squash merge</span>
     - 先回退。git客户端的本地分支是没有做改动的,可以在git客户端往远端做强制的分支推送！
@@ -568,20 +568,20 @@ git reset --soft 47183d8 | 没影响|==新增==原始HEAD节点与reset目标节
     ```
     - 将Beijing做的3个变更融合在一起,然后在main主干上新生成了一个commit！
         - 注意:Github还有一个处理机制 -> 它不会去改变特性分支的状况,除非是遇到了冲突这些不得已的情况(会往前摞一个commit)
-        - ![image](Screenshots/27.jpg)
+        - ![image](https://note.youdao.com/yws/res/60342/12C99B29C1E94C51A7EECB8286AC4DA2)
     - 再将Shanghai分支合并到main主干中！解决冲突后继续pull request！
         - 采用的squash的方式 main主干的commit的父级只有一个. 
         - 第3个箭头: 其实可以理解成,将Shanghai分支现目前所有的commit变更都加入到了main主干最后的那个commit里面。
-        - ![image](Screenshots/28.jpg)
+        - ![image](https://note.youdao.com/yws/res/60356/92E7CEB5D29E4A8EA53533F6339F03DB)
 - [ ] <span style="color:orange">Rebase merge</span>
     - 同理 先回退.略.
     - Beijing分支通过Rebase的策略往main合.
-        - ![image](Screenshots/29.jpg) 
+        - ![image](https://note.youdao.com/yws/res/60370/CFBFEAE7B3B2474DAD1F99B5A3ECF2EB) 
     - 再试着将Shanghai分支合并到main中. 有冲突 -> 解决冲突.
         - Merge branch 'main' into Shanghai 
-        - ![image](Screenshots/30.jpg)
+        - ![image](https://note.youdao.com/yws/res/60377/1336427A5AA84A15B74C34729913955D)
     - 冲突解决后,继续pull request？大人.时代变了.走不通了！！
-        - ![image](Screenshots/31.jpg)
+        - ![image](https://note.youdao.com/yws/res/60382/404933DC21144CE191E059F240F7364A)
     - 保持Beijing分支合入到main,将Shanghai分支回退到试图合并前的状态.(因为想让Shanghai也通过rebase的方式合入main,Github搞不定！)
         - `git push -f first01 Shanghai:Shanghai` 
     - 自救: 在Git客户端,在本地,让Shangihai分支新增的commit基于远端的main分支进行变基操作.
@@ -615,7 +615,7 @@ git reset --soft 47183d8 | 没影响|==新增==原始HEAD节点与reset目标节
         # 进入冲突文件 解决冲突
         vi readme
         ```
-        ![image](Screenshots/32.jpg)
+        ![image](https://note.youdao.com/yws/res/60404/DDCEC317DA594168BBCA5B8046039AD0)
         ```
         git add .
         DCdeMacBook-Air:GitHub_exercise One_Piece$ git rebase --continue
@@ -627,18 +627,18 @@ git reset --soft 47183d8 | 没影响|==新增==原始HEAD节点与reset目标节
         位于分支 Shanghai
         无文件要提交，干净的工作
         ```
-        ![image](Screenshots/33.jpg)
-        ![image](Screenshots/34.jpg)
+        ![image](https://note.youdao.com/yws/res/60406/021D86917EFE430EB2F2BB2C3ADD54F5)
+        ![image](https://note.youdao.com/yws/res/60413/AA00731AAEE94D69A2891D57D33EDE6F)
         ```
         # 强制推送
         git push -f first01 Shanghai:Shanghai
         ```
-        ![image](Screenshots/35.jpg)
-        ![image](Screenshots/36.jpg)
+        ![image](https://note.youdao.com/yws/res/60417/24A281BFD4634EFDB95DAD90F812F323)
+        ![image](https://note.youdao.com/yws/res/60419/A5C790853FE246118E13C618A126E6F4)
     - 最后,在github上pull request（rebase的策略）
         - Shanghai向main发起merge申请,且策略是rebase的时候,它并没有将main的指针直接(f-f的方式)指向Shanghai.(避免丢失提交者的信息)
-        - ![image](Screenshots/37.jpg)
-        - ![image](Screenshots/38.jpg)
+        - ![image](https://note.youdao.com/yws/res/60424/3076711F091643A48E66F6B227FDB7BC)
+        - ![image](https://note.youdao.com/yws/res/60434/C6BB2EE5A10A44AD9E68399A0F3223A3)
 - [ ] <span style="color:orange">Rerere</span>
     - 参考资料:`https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-Rerere`
 
