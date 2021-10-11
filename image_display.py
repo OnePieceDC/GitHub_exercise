@@ -50,7 +50,7 @@ def main():
     readfile('readme.txt')
     downImageTosave()
     repToMD()
-    # 验证
+    # 验证!
     # print(re.compile('(Screenshots/.*)\)').findall(mytxt))
 
 
